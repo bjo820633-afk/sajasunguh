@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>사자성어 퀴즈</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 나중에 CSS 파일 연결 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>사자성어 퀴즈</h1>
+        <p>초성을 보고 사자성어를 맞혀보세요!</p>
+    </header>
+
+    <main>
+        <!-- 문제 영역 -->
+        <section id="quiz-area">
+            <div id="question-box">
+                <h2>문제</h2>
+                <p id="chosung">ㄱㅁㅈㅇ</p> <!-- 초성 표시 -->
+            </div>
+
+            <!-- 사용자 입력 -->
+            <div id="answer-box">
+                <input type="text" id="user-answer" placeholder="사자성어를 입력하세요">
+                <button id="submit-btn">제출</button>
+            </div>
+        </section>
+
+        <!-- 결과 / 피드백 영역 -->
+        <section id="result-area">
+            <h2>결과</h2>
+            <p id="result-message">여기에 정답 여부가 표시됩니다.</p>
+        </section>
+
+        <!-- 힌트 / 설명 영역 -->
+        <section id="hint-area">
+            <h2>힌트</h2>
+            <p id="hint-meaning">뜻: </p>
+            <p id="hint-hanja">한자: </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Jiwoo Project</p>
+    </footer>
+
+    <!-- 나중에 JS 파일 연결 -->
+    <!-- <script src="script.js"></script> -->
+
+</body>
+</html>
