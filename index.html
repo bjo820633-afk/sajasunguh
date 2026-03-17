@@ -10,7 +10,7 @@
 <body>
 
     <header>
-        <h1>사자성어 퀴즈</h1>
+        <h1 id="heading">사자성어 퀴즈</h1>
         <p>초성을 보고 사자성어를 맞혀보세요!</p>
     </header>
 
@@ -19,7 +19,7 @@
         <section id="quiz-area">
             <div id="question-box">
                 <h2>문제</h2>
-                <p id="chosung">ㄱㅁㅈㅇ</p> <!-- 초성 표시 -->
+                <p id="chosung">초성</p> <!-- 초성 표시 -->
             </div>
 
             <!-- 사용자 입력 -->
@@ -27,12 +27,9 @@
                 <input type="text" id="user-answer" placeholder="사자성어를 입력하세요">
                 <button id="submit-btn">제출</button>
             </div>
-        </section>
-
-        <!-- 결과 / 피드백 영역 -->
-        <section id="result-area">
-            <h2>결과</h2>
-            <p id="result-message">여기에 정답 여부가 표시됩니다.</p>
+            
+            <!--정답 O/X 띄우기-->
+            <div id="feedback"><br></div>
         </section>
 
         <!-- 힌트 / 설명 영역 -->
@@ -46,9 +43,8 @@
     <footer>
         <p>© 2026 Jiwoo Project</p>
     </footer>
-
-    <!-- 나중에 JS 파일 연결 -->
-    <!-- <script src="script.js"></script> -->
+    <script src="script.js">
+    </script>
 
 </body>
 </html>
