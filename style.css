@@ -79,11 +79,14 @@ section {
     background-color: #2980b9;
 }
 
-/* 결과 영역 */
-#result-area p {
-    margin-top: 10px;
-    font-weight: bold;
+/*정답*/
+#feedback{
+    font-size:60px;
+    text-align:center;
 }
+
+.correct{color:green;}
+.wrong{color:red;}
 
 /* 힌트 영역 */
 #hint-area p {
