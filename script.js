@@ -4,7 +4,7 @@
 let quizData = [];
 let currentQuiz;
 let FalseCount = 0;
-let event;
+const inputEL = document.getElementById("user-answer");
 
 
 // =============================
@@ -42,6 +42,7 @@ function getRandomQuiz() {
 // =============================
 function showQuiz() {
     currentQuiz = getRandomQuiz();
+    FalseCount = 0;
 
     document.getElementById("chosung").innerText = currentQuiz.chosung;
 
@@ -62,6 +63,7 @@ function checkAnswer() {
 
     if (userAnswer === currentQuiz.idiom) {
         showFeedback(true);
+        showQuiz();
     } else {
         FalseCount+=1;
         showFeedback(false);       
@@ -92,9 +94,9 @@ async function init() {
     await loadCSV();
     showQuiz();
     
-    document.addEventListener("keydown", function(event) {
-    if (event.key === "enter") {
-        questionPass(true);
+    inputEL.addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+        checkAnswer();
     }
 });
 }
@@ -112,9 +114,11 @@ function showFeedback(isCorrect) {
 
     // 1초 뒤 사라짐
     setTimeout(() => {
-        feedback.className = "\n";
-        feedback.innerText = "\n";
-    }, 1000);
+        feedback.innerText = "";
+        if(FalseCount===3){
+            showQuiz();
+        }
+    }, 1200);
 }
 
 // 엔터 키 누르면 다음 문제(패스)
