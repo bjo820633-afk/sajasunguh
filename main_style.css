@@ -6,6 +6,35 @@
     font-family: "Noto Sans KR", Arial, sans-serif;
 }
 
+/* 처음 화면 */
+main{
+    background-color: none;
+    max-width: 600px;
+    max-height: 1000px;
+}
+
+#start-main {
+    background-color: white;
+    max-width: 600px;
+    max-height: 1000px;
+    font-size: xx-large;
+    text-align: center;
+}
+
+#start-btn {
+    padding: 20px 32px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #3498db;
+    color: white;
+    border-radius: 4px;
+}
+
+#start-btn:hover {
+    background-color: #2980b9;
+}
+
 body {
     background-color: #f4f6f8;
     color: #222;
@@ -38,6 +67,13 @@ section {
     padding: 20px;
     margin-bottom: 20px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* 점수영역 */
+#scoreTime-box {
+    text-align: center;
+    font-size: small;
+    font-weight: bold;
 }
 
 /* 문제 영역 */
