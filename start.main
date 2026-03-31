@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>시작 화면</title>
+  <link rel="stylesheet" href="main_style.css">
+</head>
+<body>
+  <main>
+    <section id="start-main">
+      <h2><br></h2>
+      <h1>사자성어<br>게임</h1>
+      <h2><br><br></h2>
+  <button id="start-btn" onclick="goToMain()">게임 시작하기</button>
+    </section>
+  </main>
+  <script>
+    function goToMain() {
+      window.location.href = "26113_main.html";
+    }
+  </script>
+</body>
+</html>
