@@ -4,7 +4,9 @@
 let quizData = [];
 let currentQuiz;
 let FalseCount = 0;
+let score = 0;
 const inputEL = document.getElementById("user-answer");
+const scoreBox = document.getElementById("scoreTime-box");
 
 
 // =============================
@@ -42,6 +44,8 @@ function getRandomQuiz() {
 // =============================
 function showQuiz() {
     currentQuiz = getRandomQuiz();
+    scoreBox.innerText=
+    "점수: " + score;
     FalseCount = 0;
 
     document.getElementById("chosung").innerText = currentQuiz.chosung;
@@ -63,6 +67,7 @@ function checkAnswer() {
 
     if (userAnswer === currentQuiz.idiom) {
         showFeedback(true);
+        scoreCheck(FalseCount);
         showQuiz();
     } else {
         FalseCount+=1;
@@ -78,6 +83,24 @@ function checkAnswer() {
     }
 
     
+}
+
+
+// =============================
+// 5+. 점수 표시
+// =============================
+function scoreCheck(falseScore){
+    switch(falseScore){
+        case 0:
+            score += 300;
+            break;
+        case 1:
+            score += 200;
+            break;
+        case 2:
+            score += 100;
+            break;
+    }
 }
 
 
