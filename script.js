@@ -194,7 +194,7 @@ function endGame() {
     localStorage.setItem("scores", JSON.stringify(scores));
 
     // 결과 페이지 이동
-    window.location.href = "26407_end.html";
+    window.location.href = "realend.html";
 }
 
 
