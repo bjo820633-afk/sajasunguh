@@ -5,8 +5,10 @@ let quizData = [];
 let currentQuiz;
 let FalseCount = 0;
 let score = 0;
+let totalTime = 60;   // 전체 제한 시간
+let gameTimer = null; // 타이머 저장용
 const inputEL = document.getElementById("user-answer");
-const scoreBox = document.getElementById("scoreTime-box");
+const scoreBox = document.getElementById("score-box");
 
 
 // =============================
@@ -16,7 +18,7 @@ async function loadCSV() {
     const response = await fetch("sajasunguh.csv");
     const text = await response.text();
 
-    const rows = text.split("\n").slice(1);
+    const rows = text.split("\n").slice(1).filter(row => row.trim() !== "");
 
     quizData = rows.map(row => {
         const cols = row.split(",");
@@ -28,6 +30,7 @@ async function loadCSV() {
         };
     });
 }
+
 
 
 // =============================
@@ -103,6 +106,22 @@ function scoreCheck(falseScore){
     }
 }
 
+// =============================
+// 5++. 타이머
+// =============================
+function startTimer() {
+    gameTimer = setInterval(() => {
+        totalTime--;
+
+        document.getElementById("time-box").innerText = totalTime;
+
+        if (totalTime <= 0) {
+            clearInterval(gameTimer);
+            endGame();
+        }
+    }, 1000);
+}
+
 
 // =============================
 // 6. 이벤트 연결
@@ -116,6 +135,8 @@ document.getElementById("submit-btn").addEventListener("click", checkAnswer);
 async function init() {
     await loadCSV();
     showQuiz();
+    totalTime = 60;
+    startTimer();
     
     inputEL.addEventListener("keydown", function(e) {
     if (e.key === "Enter") {
@@ -150,5 +171,31 @@ function questionPass(isEnter) {
         showQuiz();
     }
 }
+
+// =============================
+// 8. 게임 종료
+// =============================
+function endGame() {
+    localStorage.setItem("currentScore", score);
+
+    // 기존 기록 불러오기
+    let scores = JSON.parse(localStorage.getItem("scores")) || [];
+
+    // 현재 점수 추가
+    scores.push(score);
+
+    // 내림차순 정렬 (큰 점수부터)
+    scores.sort((a, b) => b - a);
+
+    // 상위 5개만 유지
+    scores = scores.slice(0, 5);
+
+    // 다시 저장
+    localStorage.setItem("scores", JSON.stringify(scores));
+
+    // 결과 페이지 이동
+    window.location.href = "26407_end.html";
+}
+
 
 init();
