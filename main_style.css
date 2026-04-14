@@ -7,11 +7,6 @@
 }
 
 /* 처음 화면 */
-main{
-    background-color: none;
-    max-width: 600px;
-    max-height: 1000px;
-}
 
 #start-main {
     background-color: white;
@@ -69,8 +64,9 @@ section {
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-/* 점수영역 */
-#scoreTime-box {
+#score-area {
+    display: flex;
+    justify-content: space-around;
     text-align: center;
     font-size: small;
     font-weight: bold;
